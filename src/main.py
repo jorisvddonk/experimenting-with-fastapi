@@ -2,14 +2,17 @@ from fastapi import FastAPI
 import src.coronauts
 import inspect
 import asyncio
+from typing import Dict
+from src.coronauts.coronauts import Coronauts
 
 app = FastAPI()
 
-async def getData(coronaut):
-    return {
+async def getData(coronaut: Coronauts) -> Dict[str, int]:
+    returnValue: Dict[str, int] = {
         'country': coronaut.get_country_name(),
         'cases': await coronaut.get_cases()
     }
+    return returnValue
 
 @app.get("/")
 async def read_cases():

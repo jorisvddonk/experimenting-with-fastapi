@@ -6,9 +6,9 @@ class Coronauts(ABC):
         super().__init__()
     
     @abstractmethod
-    async def get_cases(self):
+    async def get_cases(self) -> int:
         pass
 
     @abstractmethod
-    def get_country_name(self):
+    def get_country_name(self) -> str:
         pass
