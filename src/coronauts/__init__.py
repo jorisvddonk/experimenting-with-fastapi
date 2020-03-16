@@ -1,2 +1,3 @@
 from .FinlandCoronauts import FinlandCoronauts
 from .SwedenCoronauts import SwedenCoronauts
+from .NetherlandsCoronauts import NetherlandsCoronauts
