@@ -17,6 +17,6 @@ otherwise:
 pyenv install 3.8.2
 pyenv global 3.8.2
 pip install -r requirements.txt
-uvicorn main:app --reload
+uvicorn src.main:app --reload
 ```
 

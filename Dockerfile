@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 ADD . .
 
 EXPOSE 8000
-ENTRYPOINT [ "uvicorn", "main:app", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "uvicorn", "src.main:app", "--host", "0.0.0.0" ]
