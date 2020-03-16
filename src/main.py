@@ -1,15 +1,14 @@
 from fastapi import FastAPI
-from src.coronauts.FinlandCoronauts import FinlandCoronauts
-from src.coronauts.SwedenCoronauts import SwedenCoronauts
+import src.coronauts
+import inspect
 
 app = FastAPI()
 
 
 @app.get("/")
 async def read_cases():
-    f = FinlandCoronauts()
-    s = SwedenCoronauts()
     cases = {}
-    cases[f.get_country_name()] = await f.get_cases()
-    cases[s.get_country_name()] = await s.get_cases()
+    for [z, coronaut] in inspect.getmembers(src.coronauts, inspect.isclass):
+        c = coronaut()
+        cases[c.get_country_name()] = await c.get_cases()
     return cases
