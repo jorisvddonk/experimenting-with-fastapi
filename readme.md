@@ -1,6 +1,10 @@
 # FastAPI experiment
 
-experimenting with [FastAPI](https://github.com/tiangolo/fastapi)
+experimenting with [FastAPI](https://github.com/tiangolo/fastapi) and asyncio in Python3
+
+This project implements a very simple API exposing the number of confirmed Coronavirus cases, sourced from each country's official data.
+
+Data is not cached at the moment, so whenever a request is made, outbound requests are made.
 
 ## Running
 
