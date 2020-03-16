@@ -1,13 +1,12 @@
 from fastapi import FastAPI
+from src.coronauts.FinlandCoronauts import FinlandCoronauts
 
 app = FastAPI()
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+async def read_cases():
+    f = FinlandCoronauts()
+    cases = {}
+    cases[f.get_country_name()] = await f.get_cases()
+    return cases
